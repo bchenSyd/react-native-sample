@@ -1,8 +1,8 @@
 // @flow
 import 'isomorphic-fetch';
-const API_HOST = 'http://quantas-api.azurewebsites.net/api/';
+const API_HOST = 'http://quantas-api.azurewebsites.net/api';
 
-function callApi({endpoint: string, _headers, body, method = 'get'}) {
+function callAPI({endpoint: string, _headers, body, method = 'get'}): Promise {
     const fullUrl = (endpoint.indexOf(API_HOST) === -1) ? API_HOST + endpoint : endpoint;
     let headers = _headers || {
         'Accept': 'application/json',
@@ -22,4 +22,4 @@ function callApi({endpoint: string, _headers, body, method = 'get'}) {
             return Promise.reject(err)
         })
 }
-export default callApi;
+export default callAPI;
