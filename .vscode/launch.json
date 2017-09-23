@@ -1,0 +1,15 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+            {              
+                "type": "reactnative",
+                "request": "launch",
+                "name": "Debug Android",
+                "program": "${file}",
+                "platform": "android",
+                "internalDebuggerPort":9090,
+                "sourceMaps": true,
+                "outDir": "${workspaceRoot}/.vscode/.react"
+            }
+        ]
+    }
