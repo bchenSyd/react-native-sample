@@ -6,16 +6,16 @@ import {
   Button
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
-import MainScreenNavigator from './mainScreenNavigator';
-import ChatScreen from './chatScreen';
+import IndexScreen from './index';
+import CarDetailsScreen from './carDetails/carDetailsScreen';
 
 const SimpleApp = StackNavigator({
-  Home: {
-    screen: MainScreenNavigator,
+  Index: {
+    screen: IndexScreen,
     navigationOptions: {
-      title: 'My Chats',
+      title: 'Car Catalog',
     },
   },
-  Chat: {screen: ChatScreen}
+  CarDetails: {screen: CarDetailsScreen}
 });
 export default SimpleApp;
