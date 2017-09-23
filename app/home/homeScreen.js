@@ -17,18 +17,24 @@ class HomeScreen extends React.Component {
     }
 
     render() {
-        const {navigate} = this.props.navigation;
+        const { navigation:{navigate}, isFetching, carOfTheWeek }= this.props;
+        const review = carOfTheWeek ? carOfTheWeek.review : ''
         return <View>
             <Text>Car of the week</Text>
-            <Text>details</Text>
+            {
+                isFetching? <Text>loading...</Text>
+                :<Text>
+                    {review }
+                </Text>
+            }
         </View>
     }
 }
 
 export default connect(
     state => ({
-        isFetching: state.isFetching,
-        carOfTheWeek: state.carOfTheWeek
+        isFetching: state.home.isFetching,
+        carOfTheWeek: state.home.carOfTheWeek
     }),
     {
         getCarOfTheWeek
