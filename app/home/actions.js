@@ -4,7 +4,7 @@ import callAPI from '../common/callAPI';
 
 
 export function getCarOfTheWeek() {
-    return dispatch => {
+    return (dispatch: (actionCreator: any) => void) => {
         dispatch({
             type: actionTypes.CAR_OF_THE_WEEK_REQUEST
         });

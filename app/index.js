@@ -1,6 +1,5 @@
 //@flow
 import React from 'react';
-
 import { TabNavigator } from "react-navigation";
 import HomeScreen from './home/homeScreen';
 import SearchScreen from './search/searchScreen';

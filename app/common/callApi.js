@@ -3,10 +3,10 @@ const API_HOST = 'http://quantas-api.azurewebsites.net/api';
 
 function callAPI({ endpoint, _headers, body, method = 'get' }: {
     endpoint: string,
-    _headers: any,
-    body: any,
-    method: string
-}): Promise {
+    _headers?: any,
+    body?: any,
+    method?: string
+}): Promise<any> {
     const fullUrl = (endpoint.indexOf(API_HOST) === -1) ? API_HOST + endpoint : endpoint;
     let headers = _headers || {
         'Accept': 'application/json',
