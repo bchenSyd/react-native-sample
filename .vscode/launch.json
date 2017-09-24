@@ -5,7 +5,7 @@
                 "type": "reactnative",
                 "request": "launch",
                 "name": "Debug Android",
-                "program": "${file}",
+                "program": "${workspaceRoot}/.vscode/launchReactNative.js",
                 "platform": "android",
                 "internalDebuggerPort":9090,
                 "sourceMaps": true,

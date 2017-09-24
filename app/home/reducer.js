@@ -1,7 +1,7 @@
 //@flow
 import * as actionTypes from './constants';
 
-export default (state:any = {}, action:any) => {
+export default (state:any = {}, action:any):any => {
     switch (action.type) {
         case actionTypes.CAR_OF_THE_WEEK_REQUEST:
             return Object.assign({}, state, {isFetching: true})

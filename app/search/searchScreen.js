@@ -7,11 +7,16 @@ import {
 } from 'react-native';
 
 class SearchScreen extends React.Component {
+    go2Details = e => {
+        const { navigate } = this.props.navigation;
+        debugger;
+        console.log('navigate')
+        navigate('CarDetails');
+    }
     render() {
-        const {navigate} = this.props.navigation;
         return <View><Text>List of all contacts</Text>
             <Button
-                onPress={() => navigate('CarDetails')}
+                onPress={this.go2Details}
                 title="Search"
             />
         </View>

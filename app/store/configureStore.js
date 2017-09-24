@@ -7,10 +7,10 @@ import { createLogger } from 'redux-logger';
 
 const middlewares = [thunk];
 // only enable logger middleware in dev
-if (process.env.NODE_ENV === 'development') {
-    const loggerMiddleware = createLogger();
-    middlewares.push(loggerMiddleware);
-}
+// if (process.env.NODE_ENV === 'development') {
+//     const loggerMiddleware = createLogger();
+//     middlewares.push(loggerMiddleware);
+// }
 const createStoreWithMiddleware = compose(
     applyMiddleware(...middlewares),
     window.devToolsExtension ? window.devToolsExtension() : f => f
