@@ -1,15 +1,43 @@
 {
-        "version": "0.2.0",
-        "configurations": [
-            {              
-                "type": "reactnative",
-                "request": "launch",
-                "name": "Debug Android",
-                "program": "${workspaceRoot}/.vscode/launchReactNative.js",
-                "platform": "android",
-                "internalDebuggerPort":9090,
-                "sourceMaps": true,
-                "outDir": "${workspaceRoot}/.vscode/.react"
-            }
-        ]
-    }
+    // for 'select environment' popup to display
+    // 1. make sure you don't have an existing launch.json
+    // 2. make sure you close all your editors
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Android",
+            "program": "${workspaceRoot}/.vscode/launchReactNative.js",
+            "type": "reactnative",
+            "request": "launch",
+            "platform": "android",
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/.vscode/.react"
+        },
+        {
+            "name": "Debug iOS",
+            "program": "${workspaceRoot}/.vscode/launchReactNative.js",
+            "type": "reactnative",
+            "request": "launch",
+            "platform": "ios",
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/.vscode/.react"
+        },
+        {
+            "name": "Attach to packager",
+            "program": "${workspaceRoot}/.vscode/launchReactNative.js",
+            "type": "reactnative",
+            "request": "attach",
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/.vscode/.react"
+        },
+        {
+            "name": "Debug in Exponent",
+            "program": "${workspaceRoot}/.vscode/launchReactNative.js",
+            "type": "reactnative",
+            "request": "launch",
+            "platform": "exponent",
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/.vscode/.react"
+        }
+    ]
+}
