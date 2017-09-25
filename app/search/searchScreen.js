@@ -22,14 +22,14 @@ class SearchScreen extends Component {
     render() {
         return <View style={styles.base}>
             <View>
-            <View style={[styles.mainBody]}>
-                <Text style={[styles.searchItem]}>Select Make</Text>
-                <Text style={[styles.searchItem, styles.searchOptions]}>Select Make</Text>
-            </View>
-            <View style={[styles.mainBody]}>
-                <Text style={[styles.searchItem]}>Select Model</Text>
-                <Text style={[styles.searchItem,styles.searchOptions]}>Select Model</Text>
-            </View>
+                <View style={[styles.mainBody]}>
+                    <Text style={[styles.searchItem]}>Select Make</Text>
+                    <Text style={[styles.searchItem, styles.searchOptions]}>Select Make</Text>
+                </View>
+                <View style={[styles.mainBody]}>
+                    <Text style={[styles.searchItem]}>Select Model</Text>
+                    <Text style={[styles.searchItem,styles.searchOptions]}>Select Model</Text>
+                </View>
             </View>
          
             <Button
