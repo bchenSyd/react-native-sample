@@ -21,6 +21,8 @@ function callAPI({ endpoint, _headers, body, method = 'get' }: {
             if (res.status >= 400) {
                 throw new Error("Bad response from server");
             }
+            // note that httpResponse.json returns a Promise as well
+            // we will have to chain it
             return res.json()
         })
         .then(res => {
