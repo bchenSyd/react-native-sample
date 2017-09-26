@@ -12,6 +12,11 @@ const img_source = 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfa
 
 
 class AnimationScreen extends Component {
+    static navigationOptions = {
+        title: 'React-Native Animation Sample',
+    };
+
+
     spinValue: any;
     constructor() {
         super();
@@ -42,14 +47,14 @@ class AnimationScreen extends Component {
         });
 
         return <View style={styles.container}>
-                    <Animated.Image
-                        style={{
-                            width: 227,
-                            height: 200,
-                            transform: [{ rotate: spin }]
-                        }}
-                        source={{ uri: img_source }} />
-                </View>
+            <Animated.Image
+                style={{
+                    width: 227,
+                    height: 200,
+                    transform: [{ rotate: spin }]
+                }}
+                source={{ uri: img_source }} />
+        </View>
     }
 
 }

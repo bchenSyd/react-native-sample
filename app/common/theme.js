@@ -2,7 +2,7 @@
 
 // color
 const color = {
-    blue: '#00A8D8',
+    blue: '#0091EA',
     green: '#9BE13A',
     text: '#383838',
     lightText: 'white',
