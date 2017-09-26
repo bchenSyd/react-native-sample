@@ -23,5 +23,9 @@ const PlaygroundScreen = (props: Props) => {
     </View>
 }
 
+PlaygroundScreen.navigationOptions = {
+    title: 'Playgroud',
+  };
+
 
 export default PlaygroundScreen;

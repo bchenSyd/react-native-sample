@@ -10,15 +10,18 @@ import {
 import {StackNavigator} from 'react-navigation';
 import IndexScreen from './index';
 import CarDetailsScreen from './carDetails/carDetailsScreen';
+import PlaygroundScreen from './playground';
+
 
 const Router = StackNavigator({
   Index: {
-    screen: IndexScreen,
+    screen: IndexScreen, //TabNavigatorScreen
     navigationOptions: {
       title: 'Car Catalog',
     },
   },
-  CarDetails: {screen: CarDetailsScreen}
+  CarDetails: {screen: CarDetailsScreen},
+  Playground: {screen: PlaygroundScreen}
 });
 
 
