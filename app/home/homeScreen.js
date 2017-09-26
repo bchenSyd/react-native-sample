@@ -5,13 +5,13 @@ import {
     Button,
     Text
 } from 'react-native';
-import { connect } from 'react-redux';
-import { getCarOfTheWeek } from './actions';
+import {connect} from 'react-redux';
+import {getCarOfTheWeek} from './actions';
 
 
 class HomeScreen extends React.Component {
     componentDidMount() {
-        const { carOfTheWeek, getCarOfTheWeek } = this.props;
+        const {carOfTheWeek, getCarOfTheWeek} = this.props;
         if (!carOfTheWeek) {
             // the whole point of using redux to store carOfTheWeek is that, 
             // once you fetched it before, it's stored in store so that next time
@@ -21,16 +21,18 @@ class HomeScreen extends React.Component {
     }
 
     render() {
-        const { navigation: { navigate }, isFetching, carOfTheWeek } = this.props;
+        const {navigation: {navigate}, isFetching, carOfTheWeek} = this.props;
         const review = carOfTheWeek ? carOfTheWeek.review : ''
         return <View>
-            <Text style={{ fontSize: 20, marginBottom: 20 }}>Car of the week</Text>
+            <Text style={{fontSize: 20, marginBottom: 20}}>Car of the week</Text>
             {
                 isFetching ? <Text>loading...</Text>
                     : <Text>
                         {review}
                     </Text>
             }
+            <Button title='goto playground'
+                onPress={e => navigate('Playground')} />
         </View>
     }
 }

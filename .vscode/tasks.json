@@ -5,8 +5,12 @@
     "tasks": [
         {
             "taskName": "run-android",
-            "type": "shell",
-            "command": "react-native run-android",
+            "type":"shell",
+            "command": "sh",
+            "args":[
+                "-c",
+                "\"react-native run-android\""
+            ],
             "problemMatcher": [],
             "group": {
                 "kind": "build",

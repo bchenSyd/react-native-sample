@@ -7,11 +7,10 @@
 
 ; Ignore unexpected extra "@providesModule"
 .*/node_modules/.*/node_modules/fbjs/.*
-
 ; ignore react-navigation and react-native-tab-view as flow will throw error on them
 .*/node_modules/react-navigation/.*
 .*/node_modules/react-native-tab-view/.*
-
+.*/node_modules/metro-bundler/.*
 
 ; Ignore duplicate module providers
 ; For RN Apps installed via npm, "Libraries" folder is inside
