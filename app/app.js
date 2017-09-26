@@ -11,7 +11,7 @@ import {StackNavigator} from 'react-navigation';
 import IndexScreen from './index';
 import CarDetailsScreen from './carDetails/carDetailsScreen';
 import PlaygroundScreen from './playground';
-
+import AnimationScreen from './playground/animation';
 
 const Router = StackNavigator({
   Index: {
@@ -21,7 +21,8 @@ const Router = StackNavigator({
     },
   },
   CarDetails: {screen: CarDetailsScreen},
-  Playground: {screen: PlaygroundScreen}
+  Playground: {screen: PlaygroundScreen},
+  Animation: {screen: AnimationScreen}
 });
 
 

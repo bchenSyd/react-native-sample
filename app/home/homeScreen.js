@@ -31,8 +31,8 @@ class HomeScreen extends React.Component {
                         {review}
                     </Text>
             }
-            <Button title='goto playground'
-                onPress={e => navigate('Playground')} />
+            <Button title='goto Animation'
+                onPress={e => navigate('Animation')} />
         </View>
     }
 }
