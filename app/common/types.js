@@ -8,3 +8,8 @@
 export interface CommonInterface {
     navigate: (params: any) => void;
 }
+
+export type SelectionItem = {
+    name: string;
+    value: number;
+}
