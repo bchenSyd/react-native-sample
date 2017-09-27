@@ -49,6 +49,12 @@ class SearchContainer extends Component<any, any, State> {
         const selectionKey = type === 'make' ? 'selectedMake' : 'selectedModel';
         newState[selectionKey] = newVal;
         this.setState(newState);
+
+        if (selectionKey === 'make') {
+            // need to fetch model list
+        } else {
+            // need to enable search button
+        }
     }
 
     render() {
