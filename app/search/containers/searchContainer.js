@@ -11,6 +11,7 @@ type State = {
     selectedMake: number,
     selectedModel: number,
 }
+//class SearchContainer extends Component<any, any, State> {
 class SearchContainer extends Component {
     state: State;
     constructor() {
@@ -44,9 +45,9 @@ class SearchContainer extends Component {
         navigate('CarDetails');
     }
 
-    onSelectionChange = (type: string , newVal: number) => {
-        const newState = {...this.state};
-        const selectionKey = type === 'make' ? 'selectedMake': 'selectedModel';
+    onSelectionChange = (type: string, newVal: number) => {
+        const newState = { ...this.state };
+        const selectionKey = type === 'make' ? 'selectedMake' : 'selectedModel';
         newState[selectionKey] = newVal;
         this.setState(newState);
     }
