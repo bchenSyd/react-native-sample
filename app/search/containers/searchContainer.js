@@ -11,9 +11,8 @@ type State = {
     selectedMake: number,
     selectedModel: number,
 }
-//class SearchContainer extends Component<any, any, State> {
-class SearchContainer extends Component {
-    state: State;
+class SearchContainer extends Component<any, any, State> {
+    state: State; // for some reason, you must declare State type again here; (checked Relay code)
     constructor() {
         super()
         this.state = {
