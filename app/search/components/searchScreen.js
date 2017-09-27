@@ -22,7 +22,7 @@ type Props = {
 }
 class SearchScreen extends Component<any, Props, any>{
 
-    _onSelectionChange = (type: string) => (newVal: string) => {
+    _onSelectionChange = (type: string) => (newVal: number) => {
         const { onSelectionChange } = this.props;
         onSelectionChange(type, newVal);
     }
@@ -30,7 +30,7 @@ class SearchScreen extends Component<any, Props, any>{
     render() {
         const { go2CarDetails, makeList, modelList, selectedMake, selectedModel, onSelectionChange } = this.props;
         return <View style={styles.base}>
-            <View>
+            <View style={styles.content}>
                 <ItemPicker itemLabel='Make' selectedValue={selectedMake}
                     onSelectionChange={this._onSelectionChange('make')}
                     options={makeList} />
@@ -42,7 +42,7 @@ class SearchScreen extends Component<any, Props, any>{
 
             <Button
                 style={styles.searchButton}
-                onPress={go2CarDetails}
+                onPress={e=>go2CarDetails(1)}
                 title="Search"
             />
 
@@ -61,10 +61,8 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         marginBottom: 2
     },
-    mainBody: {
-        alignItems: 'baseline',
-        flexDirection: 'row',
-        padding: fontSize.small,
+    content: {
+        padding: fontSize.large,
         justifyContent: 'center',
     },
     searchItem: {

@@ -11,7 +11,8 @@ type State = {
     selectedMake: number,
     selectedModel: number,
 }
-class SearchContainer extends Component<any, any, State>{
+class SearchContainer extends Component {
+    state: State;
     constructor() {
         super()
         this.state = {
@@ -57,7 +58,7 @@ class SearchContainer extends Component<any, any, State>{
             selectedMake={selectedMake}
             selectedModel={selectedModel}
             onSelectionChange={this.onSelectionChange}
-            gotoCarDetails={this.go2CarDetails} />
+            go2CarDetails={this.go2CarDetails} />
     }
 }
 

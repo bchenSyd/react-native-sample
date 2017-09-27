@@ -11,16 +11,16 @@ import type { SelectionItem } from './types';
 
 type Props = {
     itemLabel: string;
-    selectedValue: string;
+    selectedValue: number;
     options: SelectionItem[];
     onSelectionChange: (selectedVal: number) => void;
 }
 
 const ItemPicker = ({ itemLabel, selectedValue, options, onSelectionChange }: Props) => {
     return (
-        <View>
-            <Text>{itemLabel}</Text>
-            <Picker
+        <View style={styles.base}>
+            <Text style={styles.label}>{itemLabel}</Text>
+            <Picker style={styles.selection}
                 selectedValue={selectedValue}
                 onValueChange={onSelectionChange}>
                 {options.map((o, index) =>
@@ -32,11 +32,17 @@ const ItemPicker = ({ itemLabel, selectedValue, options, onSelectionChange }: Pr
 }
 
 const styles = StyleSheet.create({
-    base:{
-
+    base: {
+        //flex: 1 // DO NOT PUT FLEX VALUE HERE -- all we need is display: flex
+        flexDirection: 'row',  // when direction is row
+        alignItems:'center', // vertical alignment
+        justifyContent: 'center', // text-align (horizental alignment)
     },
-    label:{
-
+    label: {
+        flex: 1
+    },
+    selection: {
+       flex: 3
     }
 })
 
