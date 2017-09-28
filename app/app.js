@@ -8,14 +8,14 @@ import {
   Button
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
-import IndexScreen from './index';
+import IndexNavigator from './index';
 import CarDetailsScreen from './carDetails/carDetailsScreen';
 import PlaygroundScreen from './playground';
 import AnimationScreen from './playground/animation';
 
-const Router = StackNavigator({
+const RouteNavigator = StackNavigator({
   Index: {
-    screen: IndexScreen, //TabNavigatorScreen
+    screen: IndexNavigator, //TabNavigatorScreen
     navigationOptions: {
       title: 'Car Catalog',
     },
@@ -30,7 +30,7 @@ class SimpleApp extends React.Component{
   store = configStore();
   render(){
       return <Provider store={this.store}>
-          <Router />
+                <RouteNavigator />
           </Provider>
   }
 }

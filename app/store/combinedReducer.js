@@ -1,9 +1,9 @@
 //@flow
 import { combineReducers } from 'redux'
-import homeReducer from '../home/reducer'
-import searchReducer from '../search/reducer'
+import { HomeReducer } from '../home'
+import { SearchReducer } from '../search'
 
 export default combineReducers({
-    home:homeReducer,
-    search: searchReducer
+    home: HomeReducer,
+    search: SearchReducer
 })

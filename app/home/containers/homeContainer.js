@@ -7,13 +7,13 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from 'react-native';
-import { color, fontSize } from '../common/theme';
+import { color, fontSize } from '../../common/theme';
 import { connect } from 'react-redux';
-import { getCarOfTheWeek } from './actions';
+import { getCarOfTheWeek } from '../actions';
 import type {
     Navigation
 } from 'react-navigation';
-
+import HomeScreen from '../components/homeScreen';
 
 type Props = {
     carOfTheWeek: {
@@ -23,7 +23,7 @@ type Props = {
     isFetching: boolean;
     navigation: Navigation;
 }
-class HomeScreen extends React.Component<any, Props, any> {
+class HomeContainer extends React.Component<any, Props, any> {
     componentDidMount() {
         const { carOfTheWeek, getCarOfTheWeek } = this.props;
         if (!carOfTheWeek) {
@@ -34,36 +34,35 @@ class HomeScreen extends React.Component<any, Props, any> {
         }
     }
 
-
     render() {
         const { navigation: { navigate }, isFetching, carOfTheWeek } = this.props;
         const review = carOfTheWeek ? carOfTheWeek.review : ''
         return <View style={styles.main}>
-            <View style={styles.content } >
-                <Text >Car of the week</Text>
-            {
-                isFetching ? <Text>loading...</Text>
-                    : <Text>
-                        {review}
-                    </Text>
-                }
-            </View>
-            {/* you are not able to change the height of a default Android Button*/}
-            <Button title='goto Playground'
-                onPress={e => navigate('Playground')}
-            />
-            {/* if you want to change it, use a TouchableOpacity instead*/}
-            <TouchableOpacity style={styles.touchable} onPress={e => navigate('Animation')}>
-                <Text style={styles.touchableText} >goto Animation</Text>
-            </TouchableOpacity>
+            
+            
+            <HomeScreen style={styles.content}
+                isFetching={isFetching}
+                carOfTheWeek={carOfTheWeek} />
 
+            <View>
+                {/* you are not able to change the height of a default Android Button*/}
+                <Button title='goto Playground'
+                    onPress={e => navigate('Playground')}
+                />
+                {/* if you want to change it, use a TouchableOpacity instead*/}
+                <TouchableOpacity style={styles.touchable} onPress={e => navigate('Animation')}>
+                    <Text style={styles.touchableText} >goto Animation</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     }
 }
 
 const styles = StyleSheet.create({
     main: {
-        flex: 1,
+        flexDirection:'column',
+        justifyContent:'space-between', 
+        flex: 1, //manditory, equivalent of set Height: 100%
     },
     content: {
         marginBottom: 20,
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     },
     touchable: {
         backgroundColor: color.blue,
-        marginTop:10,
+        marginTop: 10,
         alignItems: 'center'
     },
     touchableText: {
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
 })
 
 
+
 export default connect(
     state => ({
         isFetching: state.home.isFetching,
@@ -92,4 +92,4 @@ export default connect(
     {
         getCarOfTheWeek
     }
-)(HomeScreen);
+)(HomeContainer);

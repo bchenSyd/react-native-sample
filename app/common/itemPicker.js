@@ -33,8 +33,8 @@ const ItemPicker = ({ itemLabel, selectedValue, options, onSelectionChange }: Pr
 
 const styles = StyleSheet.create({
     base: {
-        //flex: 1 // DO NOT PUT FLEX VALUE HERE -- all we need is display: flex
-        flexDirection: 'row',  // when direction is row
+        // flex: 1, // DO NOT PUT FLEX VALUE HERE (always map to height??) -- all we need is display: flex (also see homeScreen.js)
+        flexDirection: 'row',  // when direction is row, don't set flex:1 in wrapper; (but for 'column' , must do so)
         alignItems:'center', // vertical alignment
         justifyContent: 'center', // text-align (horizental alignment)
     },

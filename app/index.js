@@ -1,13 +1,13 @@
 //@flow
 import React from 'react';
 import { TabNavigator } from "react-navigation";
-import HomeScreen from './home/homeScreen';
-import SearchScreen from './search';
+import HomeContainer from './home';
+import SearchContainer from './search';
 
 
-const IndexScreen = TabNavigator({
-    Home: { screen: HomeScreen },
-    Search: { screen: SearchScreen }
+const IndexNavigator = TabNavigator({
+    Home: { screen: HomeContainer },
+    Search: { screen: SearchContainer }
 });
 
-export default IndexScreen;
+export default IndexNavigator;
