@@ -47,7 +47,7 @@ class SearchContainer extends Component<any, any, State> {
 
     go2CarDetails = selectedModel => {
         const { navigate } = this.props.navigation;
-        navigate('CarDetails');
+        navigate('CarDetails', {model: selectedModel});
     }
 
     onSelectionChange = (type: string, newVal: number) => {

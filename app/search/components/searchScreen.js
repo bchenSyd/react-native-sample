@@ -44,7 +44,7 @@ class SearchScreen extends Component<any, Props, any>{
 
             <Button
                 disabled={!searchButtonEnabled}
-                onPress={e => go2CarDetails(1)}
+                onPress={e => go2CarDetails(selectedModel)}
                 title="Search"
             />
 

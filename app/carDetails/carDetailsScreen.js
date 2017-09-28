@@ -10,9 +10,10 @@ class CarDetailsScreen extends React.Component {
     };
     
     render() {
+      const { params } = this.props.navigation.state;
       return (
         <View>
-          <Text>car details</Text>
+          <Text>car details model:{params.model}</Text>
         </View>
       );
     }
