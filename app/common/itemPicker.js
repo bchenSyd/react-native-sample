@@ -22,9 +22,9 @@ const ItemPicker = ({ itemLabel, selectedValue, options, onSelectionChange }: Pr
             <Text style={styles.label}>{itemLabel}</Text>
             <Picker style={styles.selection}
                 selectedValue={selectedValue}
-                onValueChange={onSelectionChange}>
+                onValueChange={onSelectionChange /* call providedMethod(selectedValue, selectedIndex)*/}>
                 {options.map((o, index) =>
-                    <Picker.Item key={`_item_key_${index}`} label={o.name} value={o.value} />
+                    <Picker.Item key={`_item_key_${index}`} label={o.name} value={o.id} />
                 )}
             </Picker>
         </View>

@@ -1,22 +1,24 @@
 // @flow
 const API_HOST = 'http://quantas-api.azurewebsites.net/api';
 
-function callAPI({ endpoint, _headers, body, method = 'get' }: {
-    endpoint: string,
-    _headers?: any,
-    body?: any,
-    method?: string
-}): Promise<any> {
+type fetchOptions = {
+    headers: any,
+    body: any,
+    method: string
+}
+export default function callAPI(endpoint: string, options?: fetchOptions): Promise<any> {
     const fullUrl = (endpoint.indexOf(API_HOST) === -1) ? API_HOST + endpoint : endpoint;
-    let headers = _headers || {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-    return fetch(fullUrl, {
-        method,
-        headers,
-        body
-    })
+    const defaultOptions = {
+        method: 'get',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, 
+        body: null
+    };
+    const fetchOptions = options || {};
+
+    return fetch(fullUrl, { ...defaultOptions, ...fetchOptions })
         .then(res => {
             if (res.status >= 400) {
                 throw new Error("Bad response from server");
@@ -32,5 +34,4 @@ function callAPI({ endpoint, _headers, body, method = 'get' }: {
             //error
             return Promise.reject(err)
         })
-}
-export default callAPI;
+};

@@ -18,6 +18,7 @@ type Props = {
     modelList: SelectionItem[];
     selectedMake: number,
     selectedModel: number,
+    searchButtonEnabled: boolean;
     onSelectionChange: (type: string, newSelection: number) => void;
 }
 class SearchScreen extends Component<any, Props, any>{
@@ -28,7 +29,8 @@ class SearchScreen extends Component<any, Props, any>{
     }
 
     render() {
-        const { go2CarDetails, makeList, modelList, selectedMake, selectedModel, onSelectionChange } = this.props;
+        const { go2CarDetails, makeList, modelList, selectedMake,
+            selectedModel, onSelectionChange, searchButtonEnabled } = this.props;
         return <View style={styles.base}>
             <View style={styles.content}>
                 <ItemPicker itemLabel='Make' selectedValue={selectedMake}
@@ -37,12 +39,12 @@ class SearchScreen extends Component<any, Props, any>{
                 <ItemPicker itemLabel='Model'
                     selectedValue={selectedModel}
                     onSelectionChange={this._onSelectionChange('model')}
-                    options={modelList}/>
+                    options={modelList} />
             </View>
 
             <Button
-                style={styles.searchButton}
-                onPress={e=>go2CarDetails(1)}
+                disabled={!searchButtonEnabled}
+                onPress={e => go2CarDetails(1)}
                 title="Search"
             />
 
@@ -73,9 +75,6 @@ const styles = StyleSheet.create({
     searchOptions: {
         width: 120,
         marginLeft: 10,
-    },
-    searchButton: {
-
     }
 });
 

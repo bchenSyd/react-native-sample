@@ -10,6 +10,6 @@ export interface CommonInterface {
 }
 
 export type SelectionItem = {
+    id: number;
     name: string;
-    value: number;
 }

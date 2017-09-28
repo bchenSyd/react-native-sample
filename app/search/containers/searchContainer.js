@@ -4,12 +4,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchScreen from '../components/searchScreen';
 import type {SelectionItem } from '../../common/types';
+import callAPI from '../../common/callAPI';
+
+
 
 type State = {
     makeList: SelectionItem[];
     modelList: SelectionItem[];
-    selectedMake: number,
-    selectedModel: number,
+    selectedMake: number;
+    selectedModel: number;
+    searchButtonEnabled: boolean;
 }
 class SearchContainer extends Component<any, any, State> {
     state: State; // for some reason, you must declare State type again here; (checked Relay code)
@@ -17,53 +21,89 @@ class SearchContainer extends Component<any, any, State> {
         super()
         this.state = {
             makeList: [{
+                id: -1,
                 name: 'Please select a Make',
-                value: -1
-            },
-            {
-                name: 'mazda',
-                value: 1
             }],
             selectedMake: -1,
             modelList: [{
-                name: 'Plese select a Model',
-                value: -1
-            },
-            {
-                name: '3',
-                value: 1
+                id: -1,
+                name: 'Select a Make first',
             }],
             selectedModel: -1,
+            searchButtonEnabled: false,
         }
+    }
+
+
+    componentWillMount() {
+        callAPI('/makes')
+            .then(res => {
+                const { makeList } = this.state;
+                this.setState({
+                    makeList: makeList.concat(res),
+                })
+            })
     }
 
     go2CarDetails = selectedModel => {
         const { navigate } = this.props.navigation;
-        debugger;
-        console.log('navigate')
         navigate('CarDetails');
     }
 
     onSelectionChange = (type: string, newVal: number) => {
-        const newState = { ...this.state };
-        const selectionKey = type === 'make' ? 'selectedMake' : 'selectedModel';
-        newState[selectionKey] = newVal;
-        this.setState(newState);
-
-        if (selectionKey === 'make') {
-            // need to fetch model list
+        if (type === 'make') {
+            const makeId = newVal;
+            if (makeId === -1) {
+                // user de-select make;
+                this.setState({
+                    selectedMake: makeId,
+                    modelList: [{
+                        id: -1,
+                        name: 'Select a Make first',
+                    }],
+                    searchButtonEnabled: false,
+                });
+            } else {
+                this.setState({
+                    selectedMake: makeId,
+                    searchButtonEnabled: false,
+                })
+                // user selects a make;
+                callAPI(`/modelsByMake/${makeId}`)
+                    .then(({ models }) => {
+                        this.setState({
+                            modelList: [{
+                                id: -1,
+                                name: 'Please select a Model',
+                            }].concat(models)
+                        })
+                    })
+            }
         } else {
-            // need to enable search button
+            const modelId = newVal;
+            if (modelId === -1) {
+                // user de-select a model
+                this.setState({
+                    selectedModel: modelId,
+                    searchButtonEnabled: false,
+                });
+            } else {
+                this.setState({
+                    selectedModel: modelId,
+                    searchButtonEnabled: true,
+                });
+            }
         }
     }
 
     render() {
-        const { makeList, modelList, selectedMake, selectedModel } = this.state;
+        const { makeList, modelList, selectedMake, selectedModel, searchButtonEnabled } = this.state;
         return <SearchScreen makeList={makeList}
             modelList={modelList}
             selectedMake={selectedMake}
             selectedModel={selectedModel}
             onSelectionChange={this.onSelectionChange}
+            searchButtonEnabled={searchButtonEnabled}
             go2CarDetails={this.go2CarDetails} />
     }
 }

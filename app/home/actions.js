@@ -8,9 +8,7 @@ export function getCarOfTheWeek() {
         dispatch({
             type: actionTypes.CAR_OF_THE_WEEK_REQUEST
         });
-        callAPI({
-            endpoint: '/carOfTheWeek'
-        })
+        callAPI('/carOfTheWeek')
             .then(res => {
                 dispatch({
                     type: actionTypes.CAR_OF_THE_WEEK_SUCCESS,
