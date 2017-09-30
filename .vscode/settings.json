@@ -10,6 +10,7 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/android/app/build": true
+        "**/android/app/build": true, // the android build result folder (*.apk)
+        "**/android/build": true // the intermediate folder
     }
 }
