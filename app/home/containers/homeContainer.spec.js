@@ -19,16 +19,20 @@ describe('HomeContainer', () => {
 
   it.skip('got to playground', () => {
     const navigate = jest.fn();
+    
+    // ***********  cdm was invoked! **********
     const getCarOfTheWeek = jest.fn();
+    //*****************************************
+
     const testRenderer = renderer.create(
       <HomeContainer carOfTheWeek={null}
         getCarOfTheWeek={getCarOfTheWeek}
         navigation={{ navigate }} isFetching={true} />
-    )
+    ); 
 
     //https://reactjs.org/docs/test-renderer.html#testinstancefindbytype
     const testInstance = testRenderer.getInstance();
-    const myBtn = testInstance.findByType('Button') //we only render the fist level components
+    const myBtn = testInstance.findByType('Button');
     myBtn.simulate('click');
 
     //assert
