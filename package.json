@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"debug-test": "node --debug-brk node_modules/jest/bin/jest.js  --no-cache --runInBand  "
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.12",
@@ -24,6 +25,8 @@
 		"redux-logger": "^3.0.6"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native",
+		"bail": true,
+		"setupTestFrameworkScriptFile": "./__tests__/setup.js"
 	}
 }
