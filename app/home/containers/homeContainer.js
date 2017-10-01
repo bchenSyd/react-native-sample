@@ -93,3 +93,6 @@ export default connect(
         getCarOfTheWeek
     }
 )(HomeContainer);
+export {
+    HomeContainer
+}
