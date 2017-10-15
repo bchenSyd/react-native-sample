@@ -7,8 +7,9 @@ import {
   Text,
   Button
 } from 'react-native';
+
 import {StackNavigator} from 'react-navigation';
-import IndexNavigator from './index';
+import IndexNavigator from './indexRoute';
 import CarDetailsScreen from './carDetails/carDetailsScreen';
 import PlaygroundScreen from './playground';
 import AnimationScreen from './playground/animation';

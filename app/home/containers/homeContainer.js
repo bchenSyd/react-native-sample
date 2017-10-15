@@ -13,6 +13,7 @@ import { getCarOfTheWeek } from '../actions';
 import type {
     Navigation
 } from 'react-navigation';
+import Splash from 'react-native-smart-splash-screen';
 import HomeScreen from '../components/homeScreen';
 
 type Props = {
@@ -25,6 +26,14 @@ type Props = {
 }
 class HomeContainer extends React.Component<any, Props, any> {
     componentDidMount() {
+        // This is the actual image splash screen, not the animated one.
+        if (Splash) {
+            Splash.close({
+                animationType: Splash.animationType.fade,
+                duration: 300,
+                delay: 200,
+            });
+        }
         const { carOfTheWeek, getCarOfTheWeek } = this.props;
         if (!carOfTheWeek) {
             // the whole point of using redux to store carOfTheWeek is that, 
@@ -38,8 +47,8 @@ class HomeContainer extends React.Component<any, Props, any> {
         const { navigation: { navigate }, isFetching, carOfTheWeek } = this.props;
         const review = carOfTheWeek ? carOfTheWeek.review : ''
         return <View style={styles.main}>
-            
-            
+
+
             <HomeScreen style={styles.content}
                 isFetching={isFetching}
                 carOfTheWeek={carOfTheWeek} />
@@ -60,8 +69,8 @@ class HomeContainer extends React.Component<any, Props, any> {
 
 const styles = StyleSheet.create({
     main: {
-        flexDirection:'column',
-        justifyContent:'space-between', 
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         flex: 1, //manditory, equivalent of set Height: 100%
     },
     content: {

@@ -15,9 +15,9 @@ https://flow.org/en/docs/libdefs/#toc-what-s-a-library-definition
 
 ## react-native
 ```
-$ react-native start-android
+$ react-native run-android
 ```
-for gradle task and `react-native start` for bundler
+for gradle task. to force a clean build , delete everything from `D:\SampleApp\android\app\build`
 ```
 $ react-native start --help
 Scanning 630 folders for symlinks in D:\SampleApp\node_modules (23ms)
