@@ -14,10 +14,17 @@ https://flow.org/en/docs/libdefs/#toc-what-s-a-library-definition
 
 
 ## react-native
+1. build apk
+`$ cd android && ./gradlew assembleRelease`
+The generated APK can be found under  `android/app/build/outputs/apk/app-release.apk`, and is ready to be distributed.
+2. start gradlew
 ```
 $ react-native run-android
 ```
 for gradle task. to force a clean build , delete everything from `D:\SampleApp\android\app\build`
+
+3. start bundle server
+
 ```
 $ react-native start --help
 Scanning 630 folders for symlinks in D:\SampleApp\node_modules (23ms)
