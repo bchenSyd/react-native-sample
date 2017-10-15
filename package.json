@@ -32,7 +32,6 @@
 	},
 	"jest": {
 		"preset": "react-native",
-		"bail": true,
-		"setupTestFrameworkScriptFile": "./__tests__/setup.js"
+		"bail": true
 	}
 }
